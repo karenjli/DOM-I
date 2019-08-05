@@ -81,13 +81,10 @@ let middleImg = document.getElementById ("middle-img")
 middleImg.setAttribute('src', siteContent ["main-content"]["middle-img-src"]);
 
 
-let contactHeader= document.querySelector('.contact h4');
-contactHeader.textContent =siteContent ["contact"]["contact-h4"];
 
-let contactInfo = document.querySelectorAll (".contact p");
+let contactInfo = document.querySelectorAll (".contact h4, .contact p");
 let info = siteContent ["contact"];
 let infoPara = Object.keys(info);
-infoPara.shift();
 for (let i=0; i<contactInfo.length; i++) {
   contactInfo[i].textContent = siteContent ["contact"] [`${infoPara[i]}`]
 }
