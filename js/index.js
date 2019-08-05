@@ -73,11 +73,26 @@ for (let i=0; i<contentText.length; i++) {
 let middleImg = document.getElementById ("middle-img")
 middleImg.setAttribute('src', siteContent ["main-content"]["middle-img-src"]);
 
-let contactInfo = document.querySelectorAll('.contact');
-let info = Object.keys (siteContent ["contact"]);
+
+let contactHeader= document.querySelector('.contact h4');
+contactHeader.textContent =siteContent ["contact"]["contact-h4"];
+
+let contactInfo = document.querySelectorAll (".contact p");
+let info = siteContent ["contact"];
+let infoPara = Object.keys(info);
+infoPara.shift();
 for (let i=0; i<contactInfo.length; i++) {
-  contactInfo[i].textContent = siteContent ["contact"] [`${info[i]}`]
+  contactInfo[i].textContent = siteContent ["contact"] [`${infoPara[i]}`]
 }
+
+
+// let info = siteContent["contact"];
+// let infoValue = Object.values (siteContent ["contact"]);
+// for (let i=0; i<info.length; i++) {
+//   contactInfo[i].textContent = siteContent ["contact"] [`${i+1}`];
+// }
+
+
  //for (let i=0; i<contact.length; i++) {
 //   contactInfo[i].textContent = siteContent["contact"] [i+1];
 // }
