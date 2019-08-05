@@ -41,18 +41,46 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-let navLinks = document.getElementsByTagName("a");
-//navLinks.setAttribute('a', siteContent ["nav"])
+let navLinks = document.querySelectorAll("nav a");
+//console.log(navLinks);
+for (let i=0; i<navLinks.length; i++) {
+  navLinks[i].textContent = siteContent["nav"][`nav-item-${i+1}`];
+}
 
-let tagLine = document.getElementsByTagName("h1");
-console.log(tagLine);
-
-let button = document.getElementsByTagName("button");
-console.log(button);
+let ctaHeader = document.querySelector(".cta-text h1")
+ctaHeader.textContent=siteContent["cta"]["h1"];
 
 let ctaImg = document.getElementById('cta-img');
 ctaImg.setAttribute('src', siteContent["cta"]["img-src"])
 
-let topContentHeader = document.querySelector('.text-content h4');
-topContentHeader.setAttribute('h4', siteContent["main-content"]["features-h4"]);
-console.log(topContentHeader);
+let button = document.querySelector("button");
+button.textContent = siteContent["cta"]["button"];
+
+let contentHeader = document.querySelectorAll(".text-content h4");
+let mainContent = siteContent ["main-content"];
+let arr = Object.keys (mainContent).filter(obj => obj.includes("h4"));
+for (let i=0; i<contentHeader.length; i++) {
+  contentHeader[i].textContent = siteContent["main-content"][`${arr[i]}`]
+}
+
+let contentText = document.querySelectorAll(".text-content p");
+let textOnly = siteContent ["main-content"];
+let content = Object.keys (textOnly).filter(obj => obj.includes("content"));
+for (let i=0; i<contentText.length; i++) {
+  contentText[i].textContent = siteContent["main-content"][`${content[i]}`]
+}
+
+let middleImg = document.getElementById ("middle-img")
+middleImg.setAttribute('src', siteContent ["main-content"]["middle-img-src"]);
+
+let contactInfo = document.querySelectorAll('.contact');
+let info = Object.keys (siteContent ["contact"]);
+for (let i=0; i<contactInfo.length; i++) {
+  contactInfo[i].textContent = siteContent ["contact"] [`${info[i]}`]
+}
+ //for (let i=0; i<contact.length; i++) {
+//   contactInfo[i].textContent = siteContent["contact"] [i+1];
+// }
+
+let footer = document.querySelector('footer');
+footer.textContent = siteContent ["footer"]["copyright"];
