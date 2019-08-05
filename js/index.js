@@ -45,7 +45,14 @@ let navLinks = document.querySelectorAll("nav a");
 //console.log(navLinks);
 for (let i=0; i<navLinks.length; i++) {
   navLinks[i].textContent = siteContent["nav"][`nav-item-${i+1}`];
+  navLinks[i].style.color = 'green';
 }
+
+// //let nav = document.querySelectorAll ("nav");
+// let lastNavnode = document.createElement ("a");
+// let lastNav = document.createAttribute ("Resources");
+// document.querySelectorAll("nav").appendChild(lastNav);
+
 
 let ctaHeader = document.querySelector(".cta-text h1")
 ctaHeader.textContent=siteContent["cta"]["h1"];
