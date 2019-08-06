@@ -40,3 +40,58 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+let navLinks = document.querySelectorAll("nav a");
+//console.log(navLinks);
+for (let i=0; i<navLinks.length; i++) {
+  navLinks[i].textContent = siteContent["nav"][`nav-item-${i+1}`];
+  navLinks[i].style.color = 'green';
+}
+
+const navBar = document.querySelector ("nav");
+const resource = document.createElement('a');
+resource.textContent = "Resources";
+resource.style.color = "green";
+navBar.appendChild(resource);
+const home = document.createElement ('a')
+home.textContent = "Home";
+home.style.color = "green";
+navBar.prepend(home);
+
+
+let ctaHeader = document.querySelector(".cta-text h1")
+ctaHeader.textContent=siteContent["cta"]["h1"];
+
+let ctaImg = document.getElementById('cta-img');
+ctaImg.setAttribute('src', siteContent["cta"]["img-src"])
+
+let button = document.querySelector("button");
+button.textContent = siteContent["cta"]["button"];
+
+let contentHeader = document.querySelectorAll(".text-content h4");
+let mainContent = siteContent ["main-content"];
+let arr = Object.keys (mainContent).filter(obj => obj.includes("h4"));
+for (let i=0; i<contentHeader.length; i++) {
+  contentHeader[i].textContent = siteContent["main-content"][`${arr[i]}`]
+}
+
+let contentText = document.querySelectorAll(".text-content p");
+let textOnly = siteContent ["main-content"];
+let content = Object.keys (textOnly).filter(obj => obj.includes("content"));
+for (let i=0; i<contentText.length; i++) {
+  contentText[i].textContent = siteContent["main-content"][`${content[i]}`]
+}
+
+let middleImg = document.getElementById ("middle-img")
+middleImg.setAttribute('src', siteContent ["main-content"]["middle-img-src"]);
+
+
+let contactInfo = document.querySelectorAll (".contact h4, .contact p");
+let info = siteContent ["contact"];
+let infoPara = Object.keys(info);
+for (let i=0; i<contactInfo.length; i++) {
+  contactInfo[i].textContent = siteContent ["contact"] [`${infoPara[i]}`]
+}
+
+let footer = document.querySelector('footer');
+footer.textContent = siteContent ["footer"]["copyright"];
