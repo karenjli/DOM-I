@@ -48,10 +48,15 @@ for (let i=0; i<navLinks.length; i++) {
   navLinks[i].style.color = 'green';
 }
 
-// //let nav = document.querySelectorAll ("nav");
-// let lastNavnode = document.createElement ("a");
-// let lastNav = document.createAttribute ("Resources");
-// document.querySelectorAll("nav").appendChild(lastNav);
+const navBar = document.querySelector ("nav");
+const resource = document.createElement('a');
+resource.textContent = "Resources";
+resource.style.color = "green";
+navBar.appendChild(resource);
+const home = document.createElement ('a')
+home.textContent = "Home";
+home.style.color = "green";
+navBar.prepend(home);
 
 
 let ctaHeader = document.querySelector(".cta-text h1")
@@ -81,25 +86,12 @@ let middleImg = document.getElementById ("middle-img")
 middleImg.setAttribute('src', siteContent ["main-content"]["middle-img-src"]);
 
 
-
 let contactInfo = document.querySelectorAll (".contact h4, .contact p");
 let info = siteContent ["contact"];
 let infoPara = Object.keys(info);
 for (let i=0; i<contactInfo.length; i++) {
   contactInfo[i].textContent = siteContent ["contact"] [`${infoPara[i]}`]
 }
-
-
-// let info = siteContent["contact"];
-// let infoValue = Object.values (siteContent ["contact"]);
-// for (let i=0; i<info.length; i++) {
-//   contactInfo[i].textContent = siteContent ["contact"] [`${i+1}`];
-// }
-
-
- //for (let i=0; i<contact.length; i++) {
-//   contactInfo[i].textContent = siteContent["contact"] [i+1];
-// }
 
 let footer = document.querySelector('footer');
 footer.textContent = siteContent ["footer"]["copyright"];
